@@ -3,3 +3,4 @@ Preparation - Flask API
 
 Based initially in:
 https://realpython.com/flask-connexion-rest-api/
+https://realpython.com/flask-connexion-rest-api-part-2/
