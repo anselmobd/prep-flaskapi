@@ -2,7 +2,7 @@ from flask import render_template
 
 import config
 
-from models import Person
+from models import Person, people_schema
 
 
 app = config.connex_app
@@ -12,6 +12,7 @@ app.add_api(config.basedir / "swagger.yml")
 @app.route("/")
 def home():
     people = Person.query.all()
+    people = people_schema.dump(people)
     return render_template("home.html", people=people)
 
 
