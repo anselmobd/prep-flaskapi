@@ -12,6 +12,14 @@ class Note(db.Model):
     )
 
 
+class NoteSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Note
+        load_instance = True
+        sqla_session = db.session
+        include_fk = True
+
+
 class Person(db.Model):
     __tablename__ = "person"
     id = db.Column(db.Integer, primary_key=True)
@@ -36,5 +44,6 @@ class PersonSchema(ma.SQLAlchemyAutoSchema):
         sqla_session = db.session
 
 
+note_schema = NoteSchema()
 person_schema = PersonSchema()
 people_schema = PersonSchema(many=True)
