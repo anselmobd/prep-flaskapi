@@ -27,13 +27,13 @@ def create(person):
         )
 
 
-def read_one(lname):
-    person = Person.query.filter(Person.lname == lname).one_or_none()
+def read_one(person_id):
+    person = Person.query.get(person_id)
     if person is not None:
         return person_schema.dump(person)
     else:
         abort(
-            404, f"Person with last name {lname} not found"
+            404, f"Person with ID {person_id} not found"
         )
 
 

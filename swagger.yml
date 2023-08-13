@@ -31,6 +31,13 @@ components:
       required: True
       schema:
         type: "string"
+    person_id:
+      name: "person_id"
+      description: "ID of the person"
+      in: path
+      required: true
+      schema:
+        type: "integer"
     note_id:
       name: "note_id"
       description: "ID of the note"
@@ -65,17 +72,18 @@ paths:
       responses:
         "201":
           description: "Successfully created person"
-  /people/{lname}:
+  /people/{person_id}:
     get:
       operationId: "people.read_one"
       tags:
         - People
       summary: "Read one person"
       parameters:
-        - $ref: "#/components/parameters/lname"
+        - $ref: "#/components/parameters/person_id"
       responses:
         "200":
           description: "Successfully read person"          
+  /people/{lname}:
     put:
       tags:
         - People
