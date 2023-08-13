@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Bobina v0.001 - Flask API</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script
+        src="{{ url_for('static', filename='js/index.js') }}"
+        type="module"
+    ></script>
 </head>
 <body>
     <h1>
@@ -18,5 +23,9 @@
         {% endfor %}
     </ul>
     {% endfor %}
+
+    {% if config['DEBUG'] %}
+        {% include "_debug.html" %}
+    {% endif %}
 </body>
 </html>
