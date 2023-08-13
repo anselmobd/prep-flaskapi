@@ -30,14 +30,14 @@ components:
       in: path
       required: true
       schema:
-        type: "integer"
+        type: "string"
     note_id:
       name: "note_id"
       description: "ID of the note"
       in: path
       required: true
       schema:
-        type: "integer"
+        type: "string"
 
 paths:
   /people:
@@ -118,7 +118,7 @@ paths:
                 type: "object"
                 properties:
                   person_id:
-                    type: "integer"
+                    type: "string"
                   content:
                     type: "string"
       responses:
