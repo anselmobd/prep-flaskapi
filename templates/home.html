@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <title>Bobina v0.001 - Flask API</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/people.css') }}">
     <script
         src="{{ url_for('static', filename='js/index.js') }}"
         type="module"
     ></script>
 </head>
 <body>
-    <h1>
-        O imundo!
-    </h1>
+    <h1>Pessoas e mensagens</h1>
+
+    <div class="person-create-card">
+        {% include "_person_create_form.html" %}
+    </div>
+    <div class="people-list">
+        {% for person in people %}
+             {% include "_person_content.html" %}
+        {% endfor %}
+    </div>
+
     {% for person in people %}
     <h2>{{ person.fname }} {{ person.lname }}</h2>
     <ul>
