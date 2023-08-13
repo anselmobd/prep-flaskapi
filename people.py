@@ -51,12 +51,12 @@ def update(person_id, person):
         abort(404, f"Person with ID {person_id} not found")
 
 
-def delete(lname):
-    existing_person = Person.query.filter(Person.lname == lname).one_or_none()
+def delete(person_id):
+    existing_person = Person.query.get(person_id)
 
     if existing_person:
         db.session.delete(existing_person)
         db.session.commit()
-        return make_response(f"{lname} successfully deleted", 200)
+        return make_response(f"{person_id} successfully deleted", 200)
     else:
-        abort(404, f"Person with last name {lname} not found")
+        abort(404, f"Person with ID {person_id} not found")

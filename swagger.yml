@@ -24,13 +24,6 @@ components:
         content:
           type: "string"
   parameters:
-    lname:
-      name: "lname"
-      description: "Last name of the person to get"
-      in: path
-      required: True
-      schema:
-        type: "string"
     person_id:
       name: "person_id"
       description: "ID of the person"
@@ -99,14 +92,13 @@ paths:
             schema:
               x-body-name: "person"
               $ref: "#/components/schemas/Person"
-  /people/{lname}:
     delete:
       tags:
         - People
       operationId: "people.delete"
       summary: "Delete a person"
       parameters:
-        - $ref: "#/components/parameters/lname"
+        - $ref: "#/components/parameters/person_id"
       responses:
         "204":
           description: "Successfully deleted person"
