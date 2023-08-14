@@ -23,17 +23,6 @@
         {% endfor %}
     </div>
 
-    {% for person in people %}
-    <h2>{{ person.fname }} {{ person.lname }}</h2>
-    <ul>
-        {% for note in person.notes %}
-        <li>
-            {{ note.content }}
-        </li>
-        {% endfor %}
-    </ul>
-    {% endfor %}
-
     {% if config['DEBUG'] %}
         {% include "_debug.html" %}
     {% endif %}
