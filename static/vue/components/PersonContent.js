@@ -7,11 +7,14 @@ app.component('person-card', {
     `
     <div class="person-card" :data-person-id="person.id">
       <div class="person-content">
-      <h2>
-      <span data-person-fname="{{ person.fname }}">{{ person.fname }}</span>
-      <span data-person-lname="{{ person.lname }}">{{ person.lname }}</span>
-      </h2>
+        <h2>
+          <span data-person-fname="{{ person.fname }}">{{ person.fname }}</span>
+          <span data-person-lname="{{ person.lname }}">{{ person.lname }}</span>
+        </h2>
       </div>
+      <ul class="note-list">
+        <note-list :notes="person.notes"></note-list>
+      </ul>
     </div>
     `,
   data() {
