@@ -3,6 +3,7 @@
 }
 .person-control {
     text-align: left;
+    padding: 1em;
 }
 .person-create-card,
 .person-control-card.editing {
