@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="/static/css/style.css" />
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Import Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     
     <div id="app">
       <h1>Pessoas e mensagens</h1>
-      <person></person>
+      <person :person="person"></person>
     </div>
 
     <!-- Import App -->
