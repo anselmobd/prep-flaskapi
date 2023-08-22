@@ -1,24 +1,24 @@
-app.component('person', {
-    props: [
-      'person'
-    ],
-    template:
-      /*html*/
-      `
-      <div class="person-card" data-person-id="{{ person.id }}">
-        <div class="person-content">
-        <h2>
-        <span data-person-fname="{{ person.fname }}">{{ person.fname }}</span>
-        <span data-person-lname="{{ person.lname }}">{{ person.lname }}</span>
-        </h2>
-        </div>
+app.component('person-card', {
+  props: [
+    'person'
+  ],
+  template:
+    /*html*/
+    `
+    <div class="person-card" :data-person-id="person.id">
+      <div class="person-content">
+      <h2>
+      <span data-person-fname="{{ person.fname }}">{{ person.fname }}</span>
+      <span data-person-lname="{{ person.lname }}">{{ person.lname }}</span>
+      </h2>
       </div>
-      `,
-    data() {
-      return {}
-    },
-    methods: {
-    },
-    computed: {
-    }
-  })
+    </div>
+    `,
+  data() {
+    return {}
+  },
+  methods: {
+  },
+  computed: {
+  }
+})

@@ -1,16 +1,16 @@
 const app = Vue.createApp({
     data() {
         return {
-            person: {}
+            people: {}
         }
     },
     mounted() {
-        axios.get('http://localhost:5000/api/people/1')
+        axios.get('http://localhost:5000/api/people')
         .then(response => {
-            this.person = response.data;
+            this.people = response.data;
         })
         .catch(error => {
-            console.error('Erro ao obter person via API:', error);
+            console.error('Erro ao obter people via API:', error);
         });
     }
 })

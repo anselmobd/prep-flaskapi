@@ -5,6 +5,8 @@
     <title>Vue Mastery</title>
     <!-- Import Styles -->
     <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/people.css" />
+    <link rel="stylesheet" href="/static/css/notes.css" />
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- Import Axios -->
@@ -13,8 +15,11 @@
   <body>
     
     <div id="app">
+
       <h1>Pessoas e mensagens</h1>
-      <person :person="person"></person>
+
+      <people-list :people="people"></people-list>
+
     </div>
 
     <!-- Import App -->
@@ -22,6 +27,7 @@
 
     <!-- Import Components -->
     <script src="/static/vue/components/PersonContent.js"></script>
+    <script src="/static/vue/components/PeopleListContent.js"></script>
 
     <!-- Mount App -->
     <script>
