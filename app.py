@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, send_from_directory
 
 import config
 
@@ -15,6 +15,11 @@ def home():
     people = people_schema.dump(people)
     return render_template("home.html", people=people)
 
+
+@app.route("/vue")
+def vue():
+    return send_from_directory('static/vue', 'index.html')
+    
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
