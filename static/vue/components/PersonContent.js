@@ -15,6 +15,7 @@ app.component('person', {
       </div>
       `,
     data() {
+      return {}
     },
     methods: {
     },
