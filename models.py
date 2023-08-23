@@ -1,4 +1,5 @@
 from datetime import datetime
+from marshmallow import validates, ValidationError
 from marshmallow_sqlalchemy import fields
 
 from config import db, ma
@@ -20,6 +21,11 @@ class NoteSchema(ma.SQLAlchemyAutoSchema):
         load_instance = True
         sqla_session = db.session
         include_fk = True
+
+    @validates("content")
+    def validate_content(self, value):
+        if not value.strip():  # Verifica se a string contém apenas espaços em branco
+            raise ValidationError("Content cannot be empty or contain only spaces.")
 
 
 class Person(db.Model):
