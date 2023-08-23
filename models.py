@@ -53,6 +53,11 @@ class PersonSchema(ma.SQLAlchemyAutoSchema):
         include_relationships = True
     notes = fields.Nested(NoteSchema, many=True)
 
+    @validates("lname")
+    def validate_lname(self, value):
+        if not value.strip():  # Verifica se a string contém apenas espaços em branco
+            raise ValidationError("Lastname cannot be empty or contain only spaces.")
+
 
 note_schema = NoteSchema()
 person_schema = PersonSchema()
