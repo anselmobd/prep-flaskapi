@@ -9,7 +9,7 @@ app.component('people-list', {
       <person-create :people="people"></person-create>
     </div>
     <div class="people-list">
-      <person-card v-for="person in people" :person="person"></person-card>
+      <person-content v-for="person in people" :person="person"></person-content>
     </div>
     `,
   data() {

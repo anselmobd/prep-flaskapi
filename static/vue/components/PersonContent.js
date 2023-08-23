@@ -1,4 +1,4 @@
-app.component('person-card', {
+app.component('person-content', {
   props: [
     'person'
   ],
@@ -26,7 +26,7 @@ app.component('person-card', {
   methods: {
     addNote(note) {
       this.person.notes.push(note);
-    }
+    }    
   },
   computed: {
   }
