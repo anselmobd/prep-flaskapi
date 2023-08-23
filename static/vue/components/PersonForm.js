@@ -6,11 +6,13 @@ app.component('person-form', {
     /*html*/
     `
     <form @submit.prevent="onSubmit">
-    <label for="fname"><span>First Name</span><span class="input-error">{{ error.fname }}</span></label>
-    <input v-model="fname" id="fname" type="text"/>
-    <label for="lname"><span>Last Name</span><span class="input-error">{{ error.lname }}</span></label>
-    <input v-model="lname" id="lname" type="text"/>
-    <button type="submit">✨ Create Person</button>
+      <label for="fname"><span>First Name</span><span class="input-error">{{ error.fname }}</span></label>
+      <input v-model="fname" id="fname" type="text"/>
+
+      <label for="lname"><span>Last Name</span><span class="input-error">{{ error.lname }}</span></label>
+      <input v-model="lname" id="lname" type="text"/>
+
+      <button type="submit">✨ Create Person</button>
     </form>
     `,
   data() {
@@ -18,8 +20,8 @@ app.component('person-form', {
       fname: '',
       lname: '',
       error: {
-        'fname': '',
-        'lname': '',
+        fname: '',
+        lname: '',
       }
     }
   },
@@ -33,8 +35,10 @@ app.component('person-form', {
       }
       axios.post('http://localhost:5000/api/people', newPerson)
       .then(response => {
-          person = response.data;
-          this.people.push(person);
+        person = response.data;
+        this.people.push(person);
+        this.fname = ''
+        this.lname = ''
       })
       .catch(error => {
         e_data = error.response.data
@@ -47,8 +51,6 @@ app.component('person-form', {
           console.error('Error persisting person via API:', error);
         }
       });
-      this.fname = ''
-      this.lname = ''
     }
   },
   computed: {
