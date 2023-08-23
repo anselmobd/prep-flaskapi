@@ -41,7 +41,6 @@ def delete(note_id):
 
 
 def create(note):
-    pprint(note)
     person_id = note.get("person_id")
     person = Person.query.get(person_id)
 
