@@ -6,7 +6,7 @@ app.component('people-list', {
     /*html*/
     `
     <div class="person-create-card">
-      <person-form :people="people"></person-form>
+      <person-create :people="people"></person-create>
     </div>
     <div class="people-list">
       <person-card v-for="person in people" :person="person"></person-card>
