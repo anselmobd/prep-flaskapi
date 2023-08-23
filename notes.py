@@ -1,9 +1,10 @@
+import json
 from pprint import pprint
 
 from flask import abort, make_response
 
 from config import db
-from models import Note, Person, note_schema
+from models import Note, Person, note_schema, ValidationError
 
 
 def read_one(note_id):
@@ -45,10 +46,13 @@ def create(note):
     person = Person.query.get(person_id)
 
     if person:
-        new_note = note_schema.load(note, session=db.session)
-        person.notes.append(new_note)
-        db.session.commit()
-        return note_schema.dump(new_note), 201
+        try:
+            new_note = note_schema.load(note, session=db.session)
+            person.notes.append(new_note)
+            db.session.commit()
+            return note_schema.dump(new_note), 201
+        except ValidationError as e:
+            abort(400, json.dumps(e.messages))
     else:
         abort(
             404,
