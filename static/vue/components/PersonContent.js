@@ -14,7 +14,7 @@ app.component('person-content', {
       </div>
       <ul class="note-list">
         <li class="note-create-card">
-          <note-form :person="person" @note-submitted="addNote"></note-form>
+          <note-form :person="person"></note-form>
         </li>
         <note-list :notes="person.notes"></note-list>
       </ul>
@@ -24,9 +24,7 @@ app.component('person-content', {
     return {}
   },
   methods: {
-    addNote(note) {
-      this.person.notes.push(note);
-    }    
+    
   },
   computed: {
   }

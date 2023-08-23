@@ -27,7 +27,6 @@ app.component('note-form', {
         person_id: this.person.id.toString(),
         content: this.content
       }
-      // this.$emit('note-submitted', newNote)
       axios.post('http://localhost:5000/api/notes', newNote)
       .then(response => {
           note = response.data;
