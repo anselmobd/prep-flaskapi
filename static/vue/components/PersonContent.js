@@ -6,7 +6,8 @@ app.component('person-content', {
     /*html*/
     `
     <div class="person-card" :data-person-id="person.id">
-      <div class="person-content">
+      <person-control :person="person" @person-content-hidden="personContentHidden" @person-update="personUpdate"></person-control>
+      <div class="person-content" v-bind:class="{hidden: editing}">
         <h2>
           <span data-person-fname="{{ person.fname }}">{{ person.fname }}</span><span>&nbsp;</span>
           <span data-person-lname="{{ person.lname }}">{{ person.lname }}</span>
@@ -21,10 +22,17 @@ app.component('person-content', {
     </div>
     `,
   data() {
-    return {}
+    return {
+      editing: false
+    }
   },
   methods: {
-    
+    personContentHidden(value) {
+      this.editing = value;
+    },
+    personUpdate(value) {
+      this.$emit('a-person-update', value);
+    }
   },
   computed: {
   }

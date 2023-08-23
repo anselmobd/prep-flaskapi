@@ -18,7 +18,7 @@
 
       <h1>Pessoas e mensagens</h1>
 
-      <people-list :people="people"></people-list>
+      <people-list :people="people" @one-person-update="onePersonUpdate"></people-list>
 <!-- {{people}} -->
     </div>
 
@@ -29,6 +29,7 @@
     <script src="/static/vue/components/PeopleList.js"></script>
     <script src="/static/vue/components/PersonContent.js"></script>
     <script src="/static/vue/components/PersonCreate.js"></script>
+    <script src="/static/vue/components/PersonControl.js"></script>
     <script src="/static/vue/components/NoteList.js"></script>
     <script src="/static/vue/components/NoteForm.js"></script>
 

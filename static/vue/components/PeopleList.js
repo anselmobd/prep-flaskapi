@@ -9,13 +9,16 @@ app.component('people-list', {
       <person-create :people="people"></person-create>
     </div>
     <div class="people-list">
-      <person-content v-for="person in people" :person="person"></person-content>
+      <person-content v-for="person in people" :person="person" @a-person-update="aPersonUpdate"></person-content>
     </div>
     `,
   data() {
     return {}
   },
   methods: {
+    aPersonUpdate(value) {
+      this.$emit('one-person-update', value);
+    }
   },
   computed: {
   }
