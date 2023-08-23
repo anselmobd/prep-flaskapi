@@ -1,7 +1,8 @@
+import os
+
 from flask import render_template, send_from_directory
 
 import config
-
 from models import Person, people_schema
 
 
@@ -14,6 +15,15 @@ def home():
     people = Person.query.all()
     people = people_schema.dump(people)
     return render_template("home.html", people=people)
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        os.path.join(config.basedir, 'static'),
+        'favicon.ico',
+        mimetype='image/vnd.microsoft.icon'
+    )
 
 
 @app.route("/vue")
