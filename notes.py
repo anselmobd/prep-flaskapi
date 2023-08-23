@@ -20,7 +20,7 @@ def update(note_id, note):
     existing_note = Note.query.get(note_id)
 
     if existing_note:
-        update_note = note_schema.load(note)  # , session=db.session)
+        update_note = note_schema.load(note, session=db.session)
         existing_note.content = update_note.content
         db.session.merge(existing_note)
         db.session.commit()
@@ -46,7 +46,7 @@ def create(note):
     person = Person.query.get(person_id)
 
     if person:
-        new_note = note_schema.load(note)  # , session=db.session)
+        new_note = note_schema.load(note, session=db.session)
         person.notes.append(new_note)
         db.session.commit()
         return note_schema.dump(new_note), 201
