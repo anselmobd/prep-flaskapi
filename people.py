@@ -1,9 +1,10 @@
+import json
 from datetime import datetime
 
 from flask import abort, make_response
 
 from config import db
-from models import Person, people_schema, person_schema
+from models import Person, people_schema, person_schema, ValidationError
 
 
 def read_all():
@@ -12,10 +13,14 @@ def read_all():
 
 
 def create(person):
-    new_person = person_schema.load(person, session=db.session)
-    db.session.add(new_person)
-    db.session.commit()
-    return person_schema.dump(new_person), 201
+    try:
+        new_person = person_schema.load(person, session=db.session)
+        db.session.add(new_person)
+        db.session.commit()
+        return person_schema.dump(new_person), 201
+    except ValidationError as e:
+        abort(400, json.dumps(e.messages))
+
 
 
 def read_one(person_id):
