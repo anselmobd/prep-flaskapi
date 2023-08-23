@@ -1,4 +1,4 @@
-app.component('person-form', {
+app.component('person-create', {
   props: [
     'people'
   ],
