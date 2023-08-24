@@ -2,6 +2,10 @@ app.component('person-control', {
   props: [
     'person'
   ],
+  emits: [
+    'person-update',
+    'person-content-hidden'
+  ],
   template:
     /*html*/
     `

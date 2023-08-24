@@ -2,6 +2,7 @@ app.component('person-content', {
   props: [
     'person'
   ],
+  emits: ['a-person-update'],
   template:
     /*html*/
     `

@@ -2,6 +2,7 @@ app.component('people-list', {
   props: [
     'people'
   ],
+  emits: ['one-person-update'],
   template:
     /*html*/
     `
