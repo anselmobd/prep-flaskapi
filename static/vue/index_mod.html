@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue Mastery</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/people.css" />
+    <link rel="stylesheet" href="/static/css/notes.css" />
+    <!-- importmaps -->
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+          "axios": "https://cdn.skypack.dev/axios"
+        }
+      }
+    </script>    
+  </head>
+  <body>
+    
+    <div v-cloak id="app">
+      <h1>Pessoas e mensagens</h1>
+      {{people}}
+    </div>
+
+    <script type="module">
+      import { createApp } from 'vue'
+      import axios from 'axios'
+
+      createApp({
+        data() {
+          return {
+            people: {}
+          }
+        },
+        mounted() {
+          axios.get('http://localhost:5000/api/people')
+          .then(response => {
+            this.people = response.data;
+          })
+          .catch(error => {
+            console.error('Erro ao obter people via API:', error);
+          });
+        },
+        methods: {
+          personUpdate(value) {
+            person = this.people.find(a => a.id === value.id)
+            for(const key in value)
+              person[key] = value[key];
+          }
+        },
+      }).mount('#app')
+    </script>
+    
+  </body>
+</html>

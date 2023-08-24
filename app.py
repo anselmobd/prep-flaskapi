@@ -31,5 +31,10 @@ def vue():
     return send_from_directory('static/vue', 'index.html')
     
 
+@app.route("/vuemod")
+def vuemod():
+    return send_from_directory('static/vue', 'index_mod.html')
+    
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

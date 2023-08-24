@@ -84,3 +84,7 @@ button:hover {
 .input-error {
     color: var(--error-color);
 }
+
+[v-cloak] {
+    display: none;
+}
