@@ -7,7 +7,7 @@ app.component('note-form', {
     `
     <form @submit.prevent="onSubmit">
       <label for="content"><span>Note</span><span class="input-error">{{ error.content }}</span></label>
-      <input v-model="content" id="content" type="text"/>
+      <input v-model.trim="content" id="content" type="text"/>
       <button type="submit">✨ Create Note</button>
     </form>
     `,

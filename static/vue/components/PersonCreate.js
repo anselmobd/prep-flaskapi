@@ -7,10 +7,10 @@ app.component('person-create', {
     `
     <form @submit.prevent="onSubmit">
       <label for="fname"><span>First Name</span><span class="input-error">{{ error.fname }}</span></label>
-      <input v-model="fname" id="fname" type="text"/>
+      <input v-model.trim="fname" id="fname" type="text"/>
 
       <label for="lname"><span>Last Name</span><span class="input-error">{{ error.lname }}</span></label>
-      <input v-model="lname" id="lname" type="text"/>
+      <input v-model.trim="lname" id="lname" type="text"/>
 
       <button type="submit">✨ Create Person</button>
     </form>
