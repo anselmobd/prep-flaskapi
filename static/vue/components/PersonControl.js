@@ -10,7 +10,7 @@ app.component('person-control', {
     /*html*/
     `
     <div :class="['person-control-card', {editing: editing}]">
-      <a :class="['button', 'toggle-control', {hidden: editing}]" @click="handleEditClick($event)">✍️ Edit</a>
+      <a :class="['button', 'toggle-control', {hidden: editing}]" @click="handleEditClick">✍️ Edit</a>
       <div :class="['person-control', {hidden: !editing}]">
         <form @submit.prevent="onSubmit">
           <label for="fname"><span>First Name</span><span class="input-error">{{ error.fname }}</span></label>
@@ -21,7 +21,7 @@ app.component('person-control', {
 
           <button name="update" type="submit">💫 Update Person</button>
           <hr />
-          <button @click="handleCancelClick($event)">👈 Cancel</button><span>&nbsp;</span>
+          <button @click="handleCancelClick">👈 Cancel</button><span>&nbsp;</span>
           <button name="delete" type="submit">❌ Delete Person</button>
         </form>
       </div>
