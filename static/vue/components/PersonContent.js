@@ -2,12 +2,16 @@ app.component('person-content', {
   props: [
     'person'
   ],
-  emits: ['a-person-update'],
+  emits: ['person-update'],
   template:
     /*html*/
     `
     <div class="person-card" :data-person-id="person.id">
-      <person-control :person="person" @person-content-hidden="personContentHidden" @person-update="personUpdate"></person-control>
+      <person-control
+        :person="person"
+        @person-content-hidden="personContentHidden"
+        @person-update="(x) => $emit('person-update', x)"
+      />
       <div class="person-content" v-bind:class="{hidden: editing}">
         <h2>
           <span data-person-fname="{{ person.fname }}">{{ person.fname }}</span><span>&nbsp;</span>
@@ -30,9 +34,6 @@ app.component('person-content', {
   methods: {
     personContentHidden(value) {
       this.editing = value;
-    },
-    personUpdate(value) {
-      this.$emit('a-person-update', value);
     }
   },
   computed: {

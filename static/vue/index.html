@@ -18,7 +18,10 @@
 
       <h1>Pessoas e mensagens</h1>
 
-      <people-list :people="people" @one-person-update="onePersonUpdate"></people-list>
+      <people-list
+        :people="people"
+        @person-update="personUpdate"
+      />
 <!-- {{people}} -->
     </div>
 

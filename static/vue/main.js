@@ -14,7 +14,7 @@ const app = Vue.createApp({
     });
   },
   methods: {
-    onePersonUpdate(value) {
+    personUpdate(value) {
       person = this.people.find(a => a.id === value.id)
       for(const key in value)
         person[key] = value[key];

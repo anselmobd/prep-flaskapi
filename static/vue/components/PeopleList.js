@@ -2,7 +2,7 @@ app.component('people-list', {
   props: [
     'people'
   ],
-  emits: ['one-person-update'],
+  emits: ['person-update'],
   template:
     /*html*/
     `
@@ -10,16 +10,17 @@ app.component('people-list', {
       <person-create :people="people"></person-create>
     </div>
     <div class="people-list">
-      <person-content v-for="person in people" :person="person" @a-person-update="aPersonUpdate"></person-content>
+      <person-content
+        v-for="person in people"
+        :person="person"
+        @person-update="(x) => $emit('person-update', x)"
+      />
     </div>
     `,
   data() {
     return {}
   },
   methods: {
-    aPersonUpdate(value) {
-      this.$emit('one-person-update', value);
-    }
   },
   computed: {
   }
