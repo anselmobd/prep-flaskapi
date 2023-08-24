@@ -12,6 +12,7 @@ app.component('people-list', {
     <div class="people-list">
       <person-content
         v-for="person in people"
+        :key="person.id"
         :person="person"
         @person-update="(x) => $emit('person-update', x)"
       />

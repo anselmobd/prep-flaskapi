@@ -5,7 +5,7 @@ app.component('note-list', {
   template:
     /*html*/
     `
-    <li class="note-card" v-for="note in notes" :data-note-id="note.id">
+    <li class="note-card" v-for="note in notes" :key="note.id">
       <div class="note-content">{{ note.content }}</div>
     </li>
     `,
