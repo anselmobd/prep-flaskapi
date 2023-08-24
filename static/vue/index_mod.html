@@ -19,38 +19,14 @@
   </head>
   <body>
     
-    <div v-cloak id="app">
-      <h1>Pessoas e mensagens</h1>
-      {{people}}
-    </div>
+    <div v-cloak id="app"></div>
 
     <script type="module">
       import { createApp } from 'vue'
-      import axios from 'axios'
 
-      createApp({
-        data() {
-          return {
-            people: {}
-          }
-        },
-        mounted() {
-          axios.get('http://localhost:5000/api/people')
-          .then(response => {
-            this.people = response.data;
-          })
-          .catch(error => {
-            console.error('Erro ao obter people via API:', error);
-          });
-        },
-        methods: {
-          personUpdate(value) {
-            person = this.people.find(a => a.id === value.id)
-            for(const key in value)
-              person[key] = value[key];
-          }
-        },
-      }).mount('#app')
+      import mainMod from '/static/vue/mainMod.js'
+
+      createApp(mainMod).mount('#app')
     </script>
     
   </body>
