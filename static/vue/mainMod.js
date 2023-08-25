@@ -1,5 +1,5 @@
 import axios from 'axios'
-import PeopleListMod from '/static/vue/components/PeopleListMod.js'
+import PeopleListMod from 'vue/components/PeopleListMod.js'
 
 export default {
   components: {

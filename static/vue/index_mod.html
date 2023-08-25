@@ -12,7 +12,8 @@
       {
         "imports": {
           "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
-          "axios": "https://cdn.skypack.dev/axios"
+          "axios": "https://cdn.skypack.dev/axios",
+          "vue/": "/static/vue/"
         }
       }
     </script>    
@@ -24,7 +25,7 @@
     <script type="module">
       import { createApp } from 'vue'
 
-      import mainMod from '/static/vue/mainMod.js'
+      import mainMod from 'vue/mainMod.js'
 
       createApp(mainMod).mount('#app')
     </script>
