@@ -1,17 +1,17 @@
 import axios from 'axios'
-import PeopleListMod from 'vue/components/PeopleListMod.js'
+import PeopleList from 'vue/components/PeopleList.js'
 
 export default {
   components: {
-    PeopleListMod
+    PeopleList
   },
   template:
     /*html*/
     `
     <h1>Pessoas e mensagens</h1>
-    <people-list-mod
+    <people-list
       :people="people"
-    ></people-list-mod>
+    ></people-list>
     `,
   data() {
     return {
