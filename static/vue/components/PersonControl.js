@@ -4,6 +4,7 @@ app.component('person-control', {
   ],
   emits: [
     'person-update',
+    'person-delete',
     'person-content-hidden'
   ],
   template:
@@ -44,7 +45,7 @@ app.component('person-control', {
       if (action == 'update') {
         this.onUpdate(event);
       } else {
-        console.log('delete!!!!!!!!!!!!!');
+        this.onDelete(event);
       }
     },
     cleanError() {
@@ -74,6 +75,18 @@ app.component('person-control', {
           console.error('Error persisting person via API:', error);
         }
       });
+    },
+    onDelete(event) {
+      if (window.confirm("Do you really want to remove this person?")) {
+        axios.delete('http://localhost:5000/api/people/'+this.person.id)
+        .then(response => {
+          this.$emit('person-delete', response.data.id);
+          this.handleCancelClick(event);
+        })
+        .catch(error => {
+          console.error('Error deleting person via API:', error);
+        });
+      }
     },
     handleEditClick(event) {
       event.preventDefault();

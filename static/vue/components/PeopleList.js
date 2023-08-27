@@ -2,7 +2,10 @@ app.component('people-list', {
   props: [
     'people'
   ],
-  emits: ['person-update'],
+  emits: [
+    'person-update',
+    'person-delete'
+  ],
   template:
     /*html*/
     `
@@ -15,6 +18,7 @@ app.component('people-list', {
         :key="person.id"
         :person="person"
         @person-update="(x) => $emit('person-update', x)"
+        @person-delete="(x) => $emit('person-delete', x)"
       />
     </div>
     `,

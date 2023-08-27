@@ -18,6 +18,10 @@ const app = Vue.createApp({
       person = this.people.find(a => a.id === value.id);
       for(const key in value)
         person[key] = value[key];
+    },
+    personDelete(id) {
+      index = this.people.findIndex(a => a.id === id);
+      this.people.splice(index, 1);
     }
   }
 })

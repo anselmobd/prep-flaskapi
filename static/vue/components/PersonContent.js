@@ -2,7 +2,10 @@ app.component('person-content', {
   props: [
     'person'
   ],
-  emits: ['person-update'],
+  emits: [
+    'person-update',
+    'person-delete'
+  ],
   template:
     /*html*/
     `
@@ -11,6 +14,7 @@ app.component('person-content', {
         :person="person"
         @person-content-hidden="personContentHidden"
         @person-update="(x) => $emit('person-update', x)"
+        @person-delete="(x) => $emit('person-delete', x)"
       />
       <div class="person-content" v-bind:class="{hidden: editing}">
         <h2>
