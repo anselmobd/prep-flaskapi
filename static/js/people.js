@@ -112,12 +112,12 @@ class PersonControl {
   handleDeleteClick(event) {
     event.preventDefault();
     const endpoint = "/api/people/" + this.personID;
-    sendForm(this.form, "DELETE", endpoint, (data, inputForm) => {
-      let personCard = inputForm.closest(".person-card");
-      if (window.confirm("Do you really want to remove this person?")) {
+    if (window.confirm("Do you really want to remove this person?")) {
+      sendForm(this.form, "DELETE", endpoint, (data, inputForm) => {
+        let personCard = inputForm.closest(".person-card");
         personCard.remove();
-      }
-    });
+      });
+    }
   }
 
   handleUpdateClick(event) {
