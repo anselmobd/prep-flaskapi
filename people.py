@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+from pprint import pprint
 
 from flask import abort, make_response
 
@@ -49,10 +50,10 @@ def update(person_id, person):
 
 def delete(person_id):
     existing_person = Person.query.get(person_id)
-
     if existing_person:
         db.session.delete(existing_person)
         db.session.commit()
-        return make_response(f"{person_id} successfully deleted", 200)
+        # return make_response(f"{person_id} successfully deleted", 200)
+        return person_schema.dump(existing_person), 200
     else:
         abort(404, f"Person with ID {person_id} not found")
