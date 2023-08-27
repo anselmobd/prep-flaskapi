@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     onSubmit(event) {
-      action = event.submitter.name;
+      let action = event.submitter.name;
       if (action == 'update') {
         this.onUpdate(event);
       } else {
@@ -66,9 +66,9 @@ export default {
         this.handleCancelClick(event);
       })
       .catch(error => {
-        e_data = error.response.data
+        let e_data = error.response.data
         if (e_data.status == 400) {
-          detail = JSON.parse(e_data.detail);
+          let detail = JSON.parse(e_data.detail);
           for (const [key, value] of Object.entries(detail)) {
             this.error[key] = value.join('; ');
           }

@@ -37,15 +37,15 @@ export default {
       }
       axios.post('http://localhost:5000/api/people', newPerson)
       .then(response => {
-        person = response.data;
+        let person = response.data;
         this.people.push(person);
         this.fname = ''
         this.lname = ''
       })
       .catch(error => {
-        e_data = error.response.data
+        let e_data = error.response.data
         if (e_data.status == 400) {
-          detail = JSON.parse(e_data.detail);
+          let detail = JSON.parse(e_data.detail);
           for (const [key, value] of Object.entries(detail)) {
             this.error[key] = value.join('; ');
           }
