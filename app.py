@@ -33,7 +33,7 @@ def vue():
 
 @app.route("/vuemod")
 def vuemod():
-    return send_from_directory('static/vue', 'index_mod.html')
+    return send_from_directory('static/vuemod', 'index_mod.html')
     
 
 if __name__ == "__main__":
