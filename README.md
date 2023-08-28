@@ -25,5 +25,3 @@ After that, reviewing the basic documentation (Docs - Guide) in
 - https://vuejs.org/
 
 in the `/vuemod` route, I replicate all the functionalities in `/vue`, but using script type module. This is less compatible with slightly older browsers, but provides cleaner code.
-
-WIP
