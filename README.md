@@ -25,3 +25,12 @@ After that, reviewing the basic documentation (Docs - Guide) in
 - https://vuejs.org/
 
 in the `/vuemod` route, I replicate all the functionalities in `/vue`, but using script type module. This is less compatible with slightly older browsers, but provides cleaner code.
+
+---
+
+I tried to use Alembic directly or Flask-Alembic in this study, without success.
+
+It seems like a great tool but I'm missing some details.
+
+- https://alembic.sqlalchemy.org
+- https://flask-alembic.readthedocs.io
