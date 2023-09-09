@@ -33,6 +33,7 @@ class Person(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     lname = db.Column(db.String(32), nullable=False)
     fname = db.Column(db.String(32))
+    # email = db.Column(db.String(50))
     timestamp = db.Column(
         db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow
     )
